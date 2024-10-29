@@ -57,8 +57,8 @@ Route::get('create-product', function () {
     return view('admin.create-product');
 });
 
-Route::get('customers', function () {
-    return view('admin.customers');
+Route::get('users', function () {
+    return view('admin.users');
 });
 
 Route::get('orders', function () {

@@ -34,9 +34,6 @@
         <div class="main-content">
             <div class="page-content">
                 <div class="container-fluid">
-                    <!-- Page Title -->
-                    @include('admin.layouts.partials.start-page')
-                    
                     <!-- Content -->
                     @yield('content')
                 </div>
