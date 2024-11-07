@@ -1,7 +1,8 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,25 +18,29 @@ Route::get('/', function () {
     return view('client.index');
 });
 
-Route::get('shop-single', function () {
-    return view('client.shop-single');
-});
+Route::get('/clientProducts', [ProductController::class, 'clientProducts'])->name('product.show');
+
+Route::get('/clientProductDetail/{id}', [ProductController::class, 'clientProductDetail'])->name('product.show');
 
 Route::get('about', function () {
     return view('client.about');
 });
 
-Route::get('shop', function () {
-    return view('client.shop');
-});
 
-Route::get('cart', function () {
-    return view('client.cart');
-});
+Route::post('/addCart', [CartController::class, 'addCart'])->name('addCart');
+
+
+
+
+// Route::get('checkout', function () {
+//     return view('client.checkout');
+// });
+Route::post('cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+Route::get('checkout', [CartController::class, 'checkout'])->name('checkout');
 
 Route::get('checkout', function () {
     return view('client.checkout');
-});
+})->name('checkout');
 
 Route::get('contact', function () {
     return view('client.contact');
@@ -68,3 +73,4 @@ Route::get('orders', function () {
 Route::get('order-detail', function () {
     return view('admin.order-detail');
 });
+
